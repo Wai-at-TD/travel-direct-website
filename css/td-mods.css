@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+#holid-title h1 {
+			padding: 0;
+			margin: 0;
+			line-height: 1;
+			font-weight: 600;
+			letter-spacing: 1px;
+			color: #333;
+			font-size: 23px;
+			text-transform: uppercase;
+		}
+		#holid-title ul.holidates {
+				font-size:12px;
+				font-weight: 600;
+				letter-spacing: 1px;
+		}
+		#holid-title ul.holidates em{
+			color:#1693A5;
+		}
+		#holid-title ul {
+
+			margin-top: 20px;
+			font-weight: 300;
+			letter-spacing: 1px;
+			color: #777;
+			font-size: 16px;
+
+		}
+		
+		#holid-title span {
+			display: block;
+			margin-top: 10px;
+			font-weight: 300;
+			color: #777;
+			font-size: 18px;
+		}
+		span.callcd {
+			display: block;
+			font-weight: 300;
+			color: #777;
+			font-size: 18px;
+		}
+		#holid-title p {
+			color:#777;
+			font-size:12px;
+			display: block;
+			margin-top: 10px;
+			letter-spacing: 1px;
+		}
+		
+		#holid-title span strong{
+			color:#1693A5;
+			/*color:#C02942; if wanted red*/
+			font-weight: 600;
+			letter-spacing: 1px;
+			font-size: 32px;
+		}
+
