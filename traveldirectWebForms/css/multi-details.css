@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+body:not(.device-touch):not(.device-xs):not(.device-xxs) #whymulti .portfolio-overlay-open .portfolio-item .portfolio-image img {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all 1.5s ease;
+	-o-transition: all 1.5s ease;
+	transition: all 1.5s ease;
+}
+
+body:not(.device-touch):not(.device-xs):not(.device-xxs) #whymulti .portfolio-overlay-open .portfolio-item:hover .portfolio-image img {
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+#whymulti .portfolio-overlay-open .portfolio-overlay {
+	opacity: 1;
+	background-color: rgba(0,0,0,0.2);
+}
+
+body:not(.device-touch):not(.device-xs):not(.device-xxs) #whymulti .portfolio-overlay {
+	-webkit-transition: background-color .4s ease-in-out;
+	-o-transition: background-color .4s ease-in-out;
+	transition: background-color .4s ease-in-out;
+}
+
+#whymulti .portfolio-overlay-open .portfolio-item:hover .portfolio-overlay { background-color: rgba(0,0,0,0.4); }
+
+#whymulti .portfolio-overlay .portfolio-desc h3 {
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+}
+.boxxi{
+	background-color: rgba(0,0,0,0.7); 
+	padding:10px; 
+	border-radius:8px; 
+	border:1px solid #999;
+}
