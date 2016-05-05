@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -107,6 +108,7 @@
     <Content Include="barbados-hotel-dover-beach-hotel.html" />
     <Content Include="barbados-hotel-palms-resort-barbados.html" />
     <Content Include="barbados-hotels.html" />
+    <Content Include="campaigns\Campaign1.aspx" />
     <Content Include="contact-travel-direct.html" />
     <Content Include="css\colors-blue.php" />
     <Content Include="css\colors.php" />
@@ -1278,6 +1280,10 @@
     <None Include="Properties\PublishProfiles\TravelDirect - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TravelDirect-webform-staging - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\TravelDirect-webform-staging - Web Deploy.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2305,6 +2311,7 @@
     <Content Include="travel-direct-inspiration-CODED.html" />
     <Content Include="travel-direct-inspiration.html" />
     <Content Include="travel-direct-terms-and-conditions.html" />
+    <Content Include="Unsuscribe.aspx" />
     <Content Include="videos\jamaica-holidays-couples-negril.mp4" />
     <Content Include="visit-barbados.html" />
     <Content Include="visit-jamaica.html" />
@@ -2315,6 +2322,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="campaigns\Campaign1.aspx.cs">
+      <DependentUpon>Campaign1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="campaigns\Campaign1.aspx.designer.cs">
+      <DependentUpon>Campaign1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormsView.aspx.cs">
       <DependentUpon>FormsView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2330,6 +2344,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Unsuscribe.aspx.cs">
+      <DependentUpon>Unsuscribe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Unsuscribe.aspx.designer.cs">
+      <DependentUpon>Unsuscribe.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
