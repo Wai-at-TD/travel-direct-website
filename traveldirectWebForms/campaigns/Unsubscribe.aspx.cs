@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace traveldirectWebForms
+namespace traveldirectWebForms.campaigns
 {
-    public partial class Unsuscribe : System.Web.UI.Page
+    public partial class Unsubscribe : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

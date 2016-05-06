@@ -13,13 +13,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>traveldirectWebForms</RootNamespace>
     <AssemblyName>traveldirectWebForms</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,6 +61,7 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -71,8 +73,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
@@ -82,13 +82,13 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="all-inclusive-barbados-holidays-bougainvillea-beach-resort.html" />
@@ -1278,8 +1278,6 @@
     <Content Include="images\travel-direct\hotels\jamaica\hyatt-ziva-rose-hall\.BridgeSort" />
     <None Include="Properties\PublishProfiles\TravelDirect - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\TravelDirect - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\TravelDirect-webform-staging - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\TravelDirect-webform-staging - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -2311,7 +2309,7 @@
     <Content Include="travel-direct-inspiration-CODED.html" />
     <Content Include="travel-direct-inspiration.html" />
     <Content Include="travel-direct-terms-and-conditions.html" />
-    <Content Include="Unsuscribe.aspx" />
+    <Content Include="campaigns\Unsubscribe.aspx" />
     <Content Include="videos\jamaica-holidays-couples-negril.mp4" />
     <Content Include="visit-barbados.html" />
     <Content Include="visit-jamaica.html" />
@@ -2350,12 +2348,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Unsuscribe.aspx.cs">
-      <DependentUpon>Unsuscribe.aspx</DependentUpon>
+    <Compile Include="campaigns\Unsubscribe.aspx.cs">
+      <DependentUpon>Unsubscribe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Unsuscribe.aspx.designer.cs">
-      <DependentUpon>Unsuscribe.aspx</DependentUpon>
+    <Compile Include="campaigns\Unsubscribe.aspx.designer.cs">
+      <DependentUpon>Unsubscribe.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

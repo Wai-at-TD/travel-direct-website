@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace traveldirectWebForms {
+namespace traveldirectWebForms.campaigns {
     
     
-    public partial class Unsuscribe {
+    public partial class Unsubscribe {
     }
 }

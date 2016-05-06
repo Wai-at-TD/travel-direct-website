@@ -1,0 +1,273 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Unsubscribe.aspx.cs" Inherits="traveldirectWebForms.campaigns.Unsubscribe" %>
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-GB">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="TravelDirect" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="../http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="../../style.css" type="text/css" />
+	<link rel="stylesheet" href="../../css/dark.css" type="text/css" />
+
+	<!-- Travel Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="../../demos/travel/travel.css" type="text/css" />
+	<link rel="stylesheet" href="../../demos/travel/css/datepicker.css" type="text/css" />
+	<!-- / -->
+    
+    <link rel="stylesheet" href="../https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="../../css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="../../css/magnific-popup.css" type="text/css" />
+
+	<link rel="stylesheet" href="../../css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" href="../../css/colors-dirty-green.css" type="text/css" />
+	<!--<link rel="stylesheet" href="../../css/colors.php?color=AC4147" type="text/css" />-->
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/plugins.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="../js/jquery.gmap.js"></script>
+
+	
+
+	<!-- Document Title
+	============================================= -->
+	<title>Thank you for getting in Touch</title>
+
+</head>
+
+<body class="stretched">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5RX9X7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RX9X7');</script>
+<!-- End Google Tag Manager -->
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Top Bar
+		============================================= -->
+		<div id="top-bar" class="transparent-topbar">
+
+			<div class="container clearfix">
+
+				<div class="col_half nobottommargin clearfix">
+
+					<!-- Top Links
+					============================================= -->
+					<div class="top-links">
+						<ul>
+							<li><a href="../index.html">Home</a></li>
+							<li><a href="../about-travel-direct.html">About Us</a></li>
+							<li><a href="../contact-travel-direct.html">Contact</a></li>
+							<li><a href="../holiday-destinations.html">Destinations</a>
+								<ul>
+									<li><a href="../visit-jamaica.html">Jamaica</a></li>
+									<li><a href="../visit-barbados.html">Barbados</a></li>
+									<li><a href="../visit-mexico.html">Mexico</a></li>
+                                    <li><a href="../visit-saint-lucia.html">Saint Lucia</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!-- .top-links end -->
+
+				</div>
+
+				<div class="col_half fright col_last clearfix nobottommargin">
+
+					<!-- Top Social
+					============================================= -->
+					<div id="top-social">
+						<ul>
+							
+							<li><a href="../tel:0207 148 3042" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">0207 148 3042</span></a></li>
+							<li><a href="../contact-travel-direct.html" class="si-email3"><span class="ts-icon"><i class="icon-envelope-alt"></i></span><span class="ts-text">Contact Us</span></a></li>
+						</ul>
+					</div><!-- #top-social end -->
+
+				</div>
+
+			</div>
+
+		</div><!-- #top-bar end -->
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="transparent-header" data-sticky-class="not-dark" data-responsive-class="not-dark">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="../index.html" class="standard-logo" data-dark-logo="../images/travel-direct/travel-direct-logo-dark.png"><img src="../images/travel-direct/travel-direct-logo.png" alt="Travel Direct Logo"></a>
+						<a href="../index.html" class="retina-logo" data-dark-logo="../images/travel-direct/travel-direct-logo-dark-2x.png"><img src="../images/travel-direct/travel-direct-logo-2x.png" alt="Travel Direct Logo"></a>
+					</div><!-- #logo end -->
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu" class="style-4">
+
+						<ul>
+							<li class="current"><a href="../index.html"><div><i class="icon-home2"></i>Home</div></a>	</li>
+							<li><a href="../holiday-destinations.html"><div><i class="icon-building"></i>Where to go</div></a></li>
+                            <li><a href="../travel-direct-hotel-choice.html"><div><i class="icon-building"></i>Hotels</div></a></li>
+							<li><a href="../travel-direct-holidays.html"><div><i class="icon-gift"></i>Holidays</div></a></li>
+                            
+							<li><a href="../tel:0207 148 3042"><div><i class="icon-phone3"></i>0207 148 3042</div></a></li>
+						</ul>
+
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		
+        
+        <section id="page-title">
+
+			<div class="container clearfix">
+				<h2>All Done</h2>
+				<span>You have successfully unsubscribed from our emails.</span>
+				<ol class="breadcrumb">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../contact-travel-direct.html">Contact Us</a></li>
+				</ol>
+			</div>
+
+		</section>
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+            
+            	<div class="container clearfix">
+                	
+                    <div class="col_half nobottommargin">
+                        <div class="error404 center"><i class="fa fa-frown-o fa-2x" aria-hidden="true"></i></div>
+                    </div>
+
+                    <div class="col_half nobottommargin col_last">
+
+                        <div class="heading-block nobottomborder">
+                            <h4>It's not the same without you</h4>
+                            <span>Please feel free to re-subscribe at any time. We’d be delighted to have you back on board.</span>
+                        </div>
+
+                       <div class="col_full">
+                       		   
+                            <span>Before you leave, consider taking a look at our recommended pages or browsing our dream holiday packages.
+                            </span>
+                            
+                       		
+                       </div>
+                       <div class="clear"></div>
+
+                        <div class="col_one_third widget_links nobottommargin">
+                            <ul>
+                                <li><a href="../index.html">Home</a></li>
+                                <li><a href="../about-travel-direct.html">About</a></li>
+                                <li><a href="../holiday-destinations.html">Destinations</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col_one_third widget_links nobottommargin">
+                            <ul>
+                                <li><a href="../travel-direct-holidays.html">Holidays</a></li>
+                                <li><a href="../jamaica-holidays.html">Holidays in Jamaica</a></li>
+                                <li><a href="../barbados-holidays.html">Holidays in Barbados</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col_one_third widget_links nobottommargin col_last">
+                            <ul>
+                                <li><a href="../mexico-holidays.html">Holidays in Mexico</a></li>
+                                <li><a href="../saint-lucia-holidays.html">Holidays in Saint Lucia</a></li>
+                                <li><a href="../travel-direct-inspiration.html">Newsletter</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                   
+                    
+
+                   
+                </div>
+            
+
+
+			</div>
+
+		</section><!-- #content end -->
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark">
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						<img src="../images/travel-direct/travel-direct-logo-dark.png" alt="Travel Direct Logo" class="footer-logo">
+
+						Copyrights &copy; 2016 All Rights Reserved by Travel Direct Ltd.
+					</div>
+
+					<div class="col_half col_last tright">
+						<div class="copyrights-menu copyright-links fright clearfix">
+							<a href="../index.html">Home</a>/<a href="../about-travel-direct.html">About</a>/<a href="../holiday-destinations.html">Destinations</a>/<a href="../travel-direct-hotel-choice.html">Hotels</a>/<a href="../travel-direct-holidays.html">Holidays</a>/<a href="../contact-travel-direct.html">Contact</a>
+                            
+                            <p style="margin-top: 20    px;"><span style="color: #fff; font-size: 15px;">Specialist holiday experts | Authentic travel experiences.</span><br>
+                            <strong>HQ:</strong>&nbsp;&nbsp;Foresters Hall, 25-27 Westow Street, Upper Norwoord, London SE19 3RY<br>
+                            <strong>Phone:</strong>&nbsp;&nbsp;0207 148 3042</p>
+						</div>
+						
+					</div>
+                        
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="../js/functions.js"></script>
+
+</body>
+</html>
