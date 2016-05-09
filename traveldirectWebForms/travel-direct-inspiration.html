@@ -201,7 +201,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 						<div id="contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
 
-						<form class="nobottommargin" id="template-contactform" name="template-contactform" method="post">
+						<form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" >
 
 							<div class="form-process"></div>
 
@@ -223,16 +223,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							<div class="clear"></div>
                             
                             <div class="col_half">
-                                <label for="template-contactform-from">Travelling From <small>*</small></label>
-								<!--<input type="text" id="datepicker-from" class="sm-form-control required" placeholder="Search">-->
-                                <input type="text" name="template-contactform-from" id="template-contactform-from" class="sm-form-control required" placeholder="Search">
+								<label for="template-contactform-name">Travelling From <small>*</small></label>
+								<input type="text" id="datepicker-from" class="sm-form-control" placeholder="Search">
 							</div>
 
 							<div class="col_half col_last">
-                                <label for="template-contactform-return">Returning On <small>*</small></label>
-								<!--<input type="text" id="datepicker-to" class="sm-form-control required" placeholder="Search">-->
-                                <input type="text" name="template-contactform-return" id="template-contactform-return" class="sm-form-control required" placeholder="Search">
-
+								<label for="template-contactform-email">Returning On <small>*</small></label>
+								<input type="text" id="datepicker-to" class="sm-form-control" placeholder="Search">
 							</div>
 
 							<div class="clear"></div>
@@ -248,79 +245,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							</div>
 
 							<div class="col_full">
-                                <button class="button button-3d nomargin" id="template-contactform-submit" name="template-contactform-submit" type="submit">Submit</button>
-								<!--<a class="button button-3d nomargin" id="template-contactform-submit" name="template-contactform-submit" value="submit">Submit</a>-->
+								<a class="button button-3d nomargin" href="thanks-for-subscribing.html" id="template-contactform-submit" name="template-contactform-submit" value="submit">Submit</a>
 							</div>
 
 						</form>
 
 						<script type="text/javascript">
 
-							//$("#template-contactform").validate({
-							//	submitHandler: function(form) {
-							//		$('.form-process').fadeIn();
-							//		$(form).ajaxSubmit({
-							//			target: '#contact-form-result',
-							//			success: function() {
-							//				$('.form-process').fadeOut();
-							//				$(form).find('.sm-form-control').val('');
-							//				$('#contact-form-result').attr('data-notify-msg', $('#contact-form-result').html()).html('');
-							//				SEMICOLON.widget.notifications($('#contact-form-result'));
-							//			}
-							//		});
-							//	}
-                            //});
-
-                            $(function () {
-                                $("#template-contactform-from").datepicker({
-                                    changeMonth: false,
-                                    changeYear: false
-                                });
-                                $("#template-contactform-return").datepicker({
-                                    changeMonth: false,
-                                    changeYear: false
-                                });
-
-                                $.validator.addMethod("phoneNumber", function (value, element) {
-                                    var phregex = /^(?:\(?\+?\(?\d*\)?([ -]?(\d*))*)$/;
-                                    return phregex.test(value);
-                                });
-
-                                $("#template-contactform").validate({
-                                    rules: {
-                                        'template-contactform-phone': {
-                                            phoneNumber: true,
-                                            minlength: 6
-                                        }
-                                    },
-                                    submitHandler: function (form) {
-                                        $('#template-contactform .form-process').fadeIn();
-                                        jQuery.ajax({
-                                            url: 'FormsView.aspx/FindInspiration',
-                                            type: "POST",
-                                            data: "{name:'" + $('#template-contactform-name').val() + "','email':'" + $('#template-contactform-email').val() + "', phone:'" + $('#template-contactform-phone').val() + "', fromDate:'" + $('#template-contactform-from').val() + "', returnOn:'" + $('#template-contactform-return').val() + "', message:'" + $('#template-contactform-message').val() + "'}",
-                                            dataType: "json",
-                                            contentType: "application/json; charset=utf-8",
-                                            success: function (data) {
-                                                if (data.d.includes(".html")) {
-                                                    document.location.href = data.d;
-                                                }
-                                                else {
-                                                    $('#template-contactform .form-process').fadeOut();
-                                                    $(form).find('.sm-form-control').val('');
-                                                    $('#contact-form-result').attr('data-notify-msg', data.d).html('');
-                                                    SEMICOLON.widget.notifications($('#contact-form-result'));
-                                                }
-                                            },
-                                            error: function (a, desc, error) {
-                                                $('#template-contactform .form-process').fadeOut();
-                                                $('#contact-form-result').attr('data-notify-msg', error).html('');
-                                                SEMICOLON.widget.notifications($('#contact-form-error'));
-                                            }
-                                        });
-                                    }
-                                });
-                            });
+							$("#template-contactform").validate({
+								submitHandler: function(form) {
+									$('.form-process').fadeIn();
+									$(form).ajaxSubmit({
+										target: '#contact-form-result',
+										success: function() {
+											$('.form-process').fadeOut();
+											$(form).find('.sm-form-control').val('');
+											$('#contact-form-result').attr('data-notify-msg', $('#contact-form-result').html()).html('');
+											SEMICOLON.widget.notifications($('#contact-form-result'));
+										}
+									});
+								}
+							});
 
 						</script>
 

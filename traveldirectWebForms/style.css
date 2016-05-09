@@ -1315,7 +1315,9 @@ body:not(.device-sm):not(.device-xs):not(.device-xxs) #primary-menu.style-2.cent
 #primary-menu.style-4 > ul > li > a i { line-height: 41px; }
 
 #primary-menu.style-4 > ul > li:hover > a,
-#primary-menu.style-4 > ul > li.current > a { border-color: #1ABC9C; }
+#primary-menu.style-4 > ul > li.current > a { 
+    border-color: #1ABC9C; 
+}
 
 
 /* Primary Menu - Style 5
@@ -11394,7 +11396,7 @@ button.toast-close-button {
 .footer-widgets-wrap .col_five_sixth { margin-bottom: 0; }
 
 #copyrights {
-	padding: 40px 0;
+	padding: 30px 0;
 	background-color: #DDD;
 	font-size: 14px;
 	line-height: 1.8;
@@ -11424,7 +11426,8 @@ button.toast-close-button {
 .copyrights-menu { margin-bottom: 10px; }
 
 .copyrights-menu a {
-	font-size: 14px;
+	font-size: 12px;
+    text-transform: uppercase;
 	margin: 0 10px;
 	border-bottom: 0 !important;
 }
@@ -11437,7 +11440,7 @@ button.toast-close-button {
 
 .footer-logo {
 	display: block;
-	margin-bottom: 30px;
+	margin-bottom: 0px;
 }
 
 

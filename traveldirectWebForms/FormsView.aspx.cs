@@ -33,10 +33,6 @@ namespace traveldirectWebForms
         private static string subscriptionThanksUrl = ConfigurationManager.AppSettings["subscriptionThanksUrl"];
         private static string contactThanksUrl = ConfigurationManager.AppSettings["contactThanksUrl"];
 
-        private static string subscriptionClientbody = Properties.Resources.thanks_for_subscribing;
-        private static string contactClientbody = Properties.Resources.thanks_for_contacting;
-         
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -44,19 +40,15 @@ namespace traveldirectWebForms
 
         //[WebMethod(EnableSession = true)]
         [System.Web.Services.WebMethod]
-        public static string AddToNewsLetter(string email, bool fromHotel)
+        public static string AddToNewsLetter(string email)
         {
             try
             {
-                //send email to the company
                 SendEmail(mailSendTo, "A New Newsletter Subcription from TravelDirect website", email);
                 //send email to client
-                SendEmail(email, "Thank you for subscribing", subscriptionClientbody);
+                SendEmail(email, "Successfully subscribed to our Email List!", "You have been <strong>successfully</strong> subscribed to our Email List.");
                 var tc = new TelemetryClient();
                 tc.TrackEvent("Subscription Form");
-                if (fromHotel)
-                    return subscriptionThanksUrl;
-                else
                 return newsLetterThanks;
             }
             catch (Exception)
@@ -75,11 +67,9 @@ namespace traveldirectWebForms
             {
                 CreateOpportunity(name, email, "", cx, message, DateTime.MinValue, 0, false);
 
-                //send email to the company
                 SendEmail(mailSendTo, cx, string.Format("We receive a new {0} <br> name: {1} <br> email: {2} <br> Message:{3}", cx, name, email, message));
                 //send email to client
-               contactClientbody= contactClientbody.Replace("[NAME]", name);
-                SendEmail(email, "Thanks for getting in touch", contactClientbody);
+                SendEmail(email, "Thanks for contact with us", emailThanks);
 
                 var tc = new TelemetryClient();
                 tc.TrackEvent("Contact Form");
@@ -103,13 +93,11 @@ namespace traveldirectWebForms
 
             try
             {
-               CreateOpportunity(name, email, phone, cx + ": " + subject, message, DateTime.MinValue, 0, false);
+                CreateOpportunity(name, email, phone, cx + ": " + subject, message, DateTime.MinValue, 0, false);
 
-               //send email to the company
-               SendEmail(mailSendTo, x, string.Format("{4} <br> From: {0} <br> Email: {1} <br> Telephone: {2} <br> Message: {3}", name, email, phone, message, subject));
+                SendEmail(mailSendTo, x, string.Format("{4} <br> From: {0} <br> Email: {1} <br> Telephone: {2} <br> Message: {3}", name, email, phone, message, subject));
                 //send email to client
-               contactClientbody = contactClientbody.Replace("[NAME]", name);
-                SendEmail(email, "Thanks for contact with us", contactClientbody);
+                SendEmail(email, "Thanks for contact with us", emailThanks);
 
                 var tc = new TelemetryClient();
                 tc.TrackEvent("Contact Form");
@@ -138,11 +126,10 @@ namespace traveldirectWebForms
                     days = (returnOn-fromDate).Days;
 
                 CreateOpportunity(name, email, phone, cx, message, DateTime.MinValue, days, true);
-                
-                //send email to the company
+
                 SendEmail(mailSendTo, subject, string.Format("We have a new Opportunity with a Newsletter Subscription.<br> Name: {0}<br> Email: {1}<br> Telephone: {2} Departure On: {3}<br> Returning On: {4}<br> Duration in Days: {5}<br> Message: {6}", name, email, phone, fromDate, returnOn, days, message));
                 //send email to client
-                SendEmail(email, "Thank you for subscribing", subscriptionClientbody);
+                SendEmail(email, "Thanks for your Subscription!", newsLetterThanks);
 
                 var tc = new TelemetryClient();
                 tc.TrackEvent("Subscription Form");
@@ -197,7 +184,7 @@ namespace traveldirectWebForms
             }
 
 
-            LiveHolidays.SharePoint.Client.Context.Opportunities.Add(newOpp);
+            //LiveHolidays.SharePoint.Client.Context.Opportunities.Add(newOpp);
         }
     }
 }
