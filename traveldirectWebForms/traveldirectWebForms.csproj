@@ -92,23 +92,44 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="all-inclusive-barbados-holidays-bougainvillea-beach-resort.html" />
+    <Content Include="all-inclusive-barbados-holidays-butterfly-beach-hotel.html" />
+    <Content Include="all-inclusive-barbados-holidays-dover-beach-hotel.html" />
+    <Content Include="all-inclusive-barbados-holidays-palms-resort-barbados.html" />
+    <Content Include="all-inclusive-barbados-holidays-sugar-bay.html" />
     <Content Include="all-inclusive-jamaica-holidays-ambiance-hotel.html" />
     <Content Include="all-inclusive-jamaica-holidays-couples-sans-souci.html" />
     <Content Include="all-inclusive-jamaica-holidays-couples-swept-away.html" />
     <Content Include="all-inclusive-jamaica-holidays-hilton-rose-hall.html" />
     <Content Include="all-inclusive-jamaica-holidays-holiday-inn.html" />
+    <Content Include="all-inclusive-jamaica-holidays-hyatt-zilara-rose-hall.html" />
+    <Content Include="all-inclusive-jamaica-holidays-hyatt-ziva-rose-hall.html" />
     <Content Include="all-inclusive-jamaica-holidays-jewel-dunns-river.html" />
     <Content Include="all-inclusive-jamaica-holidays-jewel-paradise-cove.html" />
+    <Content Include="all-inclusive-mexico-holidays-crown-paradise-club.html" />
+    <Content Include="all-inclusive-mexico-holidays-excellence-playa-mujeres.html" />
+    <Content Include="all-inclusive-mexico-holidays-fa-condesa.html" />
+    <Content Include="all-inclusive-mexico-holidays-fairmont-mayakoba.html" />
+    <Content Include="all-inclusive-mexico-holidays-gran-caribe-resort.html" />
+    <Content Include="all-inclusive-mexico-holidays-gran-porto-resort.html" />
     <Content Include="all-inclusive-mexico-holidays-grand-velas.html" />
+    <Content Include="all-inclusive-mexico-holidays-hard-rock-cancun.html" />
+    <Content Include="all-inclusive-mexico-holidays-hard-rock-riviera-maya.html" />
+    <Content Include="all-inclusive-mexico-holidays-hyatt-zilara.html" />
     <Content Include="all-inclusive-mexico-holidays-hyatt-ziva.html" />
+    <Content Include="all-inclusive-mexico-holidays-playa-mujeres.html" />
     <Content Include="all-inclusive-mexico-holidays-riviera-cancun.html" />
+    <Content Include="all-inclusive-mexico-holidays-temptation-resort.html" />
     <Content Include="all-inclusive-saint-lucia-holidays-calabash-cove.html" />
+    <Content Include="all-inclusive-saint-lucia-holidays-coconut-bay.html" />
     <Content Include="barbados-holidays.html" />
     <Content Include="barbados-hotel-bougainvillea-beach-resort.html" />
+    <Content Include="barbados-hotel-butterfly-beach-hotel.html" />
     <Content Include="barbados-hotel-dover-beach-hotel.html" />
     <Content Include="barbados-hotel-palms-resort-barbados.html" />
+    <Content Include="barbados-hotel-sugar-bay.html" />
     <Content Include="barbados-hotels.html" />
     <Content Include="campaigns\Campaign1.aspx" />
+    <Content Include="campaigns\Unsubscribe.aspx" />
     <Content Include="contact-travel-direct.html" />
     <Content Include="css\colors-blue.php" />
     <Content Include="css\colors.php" />
@@ -126,6 +147,7 @@
     <Content Include="css\fonts\Simple-Line-Icons.eot" />
     <Content Include="css\fonts\Simple-Line-Icons.ttf" />
     <Content Include="css\fonts\Simple-Line-Icons.woff" />
+    <Content Include="cuba-direct.html" />
     <Content Include="demos\travel\css\fonts\arca-heavy-webfont.eot" />
     <Content Include="demos\travel\css\fonts\arca-heavy-webfont.ttf" />
     <Content Include="demos\travel\css\fonts\arca-heavy-webfont.woff" />
@@ -1219,8 +1241,11 @@
     <Content Include="include\rs-plugin\font\revicons.eot" />
     <Content Include="include\rs-plugin\font\revicons.ttf" />
     <Content Include="include\rs-plugin\font\revicons.woff" />
+    <Content Include="jamaica-holidays_ORIGINAL.html" />
     <Content Include="jamaica-hotel-ambiance-hotel.html" />
     <Content Include="jamaica-hotel-hilton-rose-hall.html" />
+    <Content Include="jamaica-hotel-hyatt-zilara-rose-hall.html" />
+    <Content Include="jamaica-hotel-hyatt-ziva-rose-hall.html" />
     <Content Include="jamaica-hotel-jewel-dunns-river.html" />
     <Content Include="jamaica-hotel-jewel-paradise-cove.html" />
     <Content Include="jamaica-hotels-holiday-inn.html" />
@@ -1267,9 +1292,20 @@
     <Content Include="less\variables.less" />
     <Content Include="less\widgets.less" />
     <Content Include="mexico-holidays.html" />
+    <Content Include="mexico-hotels-crown-paradise-club.html" />
+    <Content Include="mexico-hotels-excellence-playa-mujeres.html" />
+    <Content Include="mexico-hotels-fa-condesa.html" />
+    <Content Include="mexico-hotels-fairmont-mayakoba.html" />
+    <Content Include="mexico-hotels-gran-caribe-resort.html" />
+    <Content Include="mexico-hotels-gran-porto-resort.html" />
     <Content Include="mexico-hotels-grand-velas.html" />
+    <Content Include="mexico-hotels-hard-rock-cancun.html" />
+    <Content Include="mexico-hotels-hard-rock-riviera-maya.html" />
+    <Content Include="mexico-hotels-hyatt-zilara.html" />
     <Content Include="mexico-hotels-hyatt-ziva.html" />
+    <Content Include="mexico-hotels-playa-mujeres.html" />
     <Content Include="mexico-hotels-riviera-cancun.html" />
+    <Content Include="mexico-hotels-temptation-resort.html" />
     <Content Include="mexico-hotels.html" />
     <Content Include="packages.config" />
     <Content Include="images\travel-direct\destinations\vietnam.psd" />
@@ -2299,6 +2335,7 @@
     <None Include="Resources\thanks-for-subscribing.html" />
     <Content Include="saint-lucia-holidays.html" />
     <Content Include="saint-lucia-hotels-calabash-cove.html" />
+    <Content Include="saint-lucia-hotels-coconut-bay.html" />
     <Content Include="saint-lucia-hotels.html" />
     <Content Include="style-import.css" />
     <Content Include="style.css" />
@@ -2306,11 +2343,10 @@
     <Content Include="thanks-for-subscribing.html" />
     <Content Include="travel-direct-holidays.html" />
     <Content Include="travel-direct-hotel-choice.html" />
-    <Content Include="travel-direct-inspiration-CODED.html" />
     <Content Include="travel-direct-inspiration.html" />
     <Content Include="travel-direct-terms-and-conditions.html" />
-    <Content Include="campaigns\Unsubscribe.aspx" />
     <Content Include="videos\jamaica-holidays-couples-negril.mp4" />
+    <Content Include="virgin-atlantic.html" />
     <Content Include="visit-barbados.html" />
     <Content Include="visit-jamaica.html" />
     <Content Include="visit-mexico.html" />
@@ -2326,6 +2362,13 @@
     </Compile>
     <Compile Include="campaigns\Campaign1.aspx.designer.cs">
       <DependentUpon>Campaign1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="campaigns\Unsubscribe.aspx.cs">
+      <DependentUpon>Unsubscribe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="campaigns\Unsubscribe.aspx.designer.cs">
+      <DependentUpon>Unsubscribe.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormsView.aspx.cs">
       <DependentUpon>FormsView.aspx</DependentUpon>
@@ -2347,13 +2390,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="campaigns\Unsubscribe.aspx.cs">
-      <DependentUpon>Unsubscribe.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="campaigns\Unsubscribe.aspx.designer.cs">
-      <DependentUpon>Unsubscribe.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
