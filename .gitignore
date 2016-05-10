@@ -22,3 +22,6 @@
 /traveldirectWebForms/images/author
 *.psd
 /traveldirectWebForms/images/wedding
+/traveldirectWebForms/obj
+/traveldirectWebForms/bin
+/packages
