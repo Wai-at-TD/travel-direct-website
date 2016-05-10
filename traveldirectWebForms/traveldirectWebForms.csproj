@@ -1328,7 +1328,6 @@
   <ItemGroup>
     <Content Include="about-travel-direct.html" />
     <Content Include="all-inclusive-jamaica-holidays-couples-negril.html" />
-    <Content Include="contact-travel-direct-CODED.html" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\calendar.css" />
