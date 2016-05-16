@@ -102,11 +102,11 @@ namespace traveldirectWebForms
                 var tc = new TelemetryClient();
                 tc.TrackEvent("Contact Form");
 
-                return "thank-you-for-contacting-travel-direct.html";
+                return contactThanksUrl;
             }
             catch (Exception exc)
             {
-                return emailSendError;
+                return emailSendError+exc.Message;
             }
 
 
@@ -133,7 +133,7 @@ namespace traveldirectWebForms
 
                 var tc = new TelemetryClient();
                 tc.TrackEvent("Subscription Form");
-                return "thanks-for-subscribing.html";
+                return subscriptionThanksUrl;
             }
             catch (Exception exc)
             {

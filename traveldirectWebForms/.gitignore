@@ -1,3 +1,4 @@
+<<<<<<< HEAD:traveldirectWebForms/.gitignore
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
@@ -22,3 +23,32 @@
 /traveldirectWebForms/images/author
 *.psd
 /traveldirectWebForms/images/wedding
+=======
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/traveldirectWebForms/images/magazine
+/traveldirectWebForms/images/others
+/traveldirectWebForms/images/parallax
+/traveldirectWebForms/images/portfolio
+/traveldirectWebForms/images/restaurant
+/traveldirectWebForms/images/services
+/traveldirectWebForms/images/shop
+/traveldirectWebForms/images/clients
+/traveldirectWebForms/images/events
+/traveldirectWebForms/images/extras
+/traveldirectWebForms/images/landing
+/traveldirectWebForms/images/slider
+/traveldirectWebForms/images/team
+/traveldirectWebForms/images/testimonials
+/traveldirectWebForms/images/blog
+/traveldirectWebForms/images/about
+/traveldirectWebForms/images/appshowcase
+/traveldirectWebForms/images/author
+*.psd
+/traveldirectWebForms/images/wedding
+/traveldirectWebForms/obj
+/traveldirectWebForms/bin
+/packages
+>>>>>>> f9fb28b6e503dfbce644d42b3b006cac06ae9e67:.gitignore
