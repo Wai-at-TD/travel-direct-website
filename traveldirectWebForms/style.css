@@ -9,7 +9,6 @@
 
 -----------------------------------------------------------------------------------*/
 
-
 dl, dt, dd, ol, ul, li {
 	margin: 0;
 	padding: 0;
@@ -146,6 +145,10 @@ small { font-family: 'Lato', sans-serif; }
 .ohidden {
 	position: relative;
 	overflow: hidden !important;
+}
+
+.hero-pic {
+    border-top: 2px solid #444;
 }
 
 #wrapper {
@@ -616,7 +619,23 @@ html[xmlns] .slider-wrap {display: block;}
 /* ----------------------------------------------------------------
 	Top Links
 -----------------------------------------------------------------*/
+#top-cart {
+    float: right;
+    font-size: 2vh;
+    color: rgb(22, 147, 165);
+}
 
+#top-cart p {
+    padding-top: 3px;
+    font-size: 1.3vh;
+    color: rgb(68, 68, 68);
+    border-top: 0.5px solid rgb(238, 238, 238);
+}
+
+.travel-nav-icons {
+    height: 16px;
+    margin: 6px;
+}
 
 .top-links {
 	position: relative;
@@ -1577,7 +1596,7 @@ body:not(.device-sm):not(.device-xs):not(.device-xxs) #primary-menu.style-2.cent
 #top-cart,
 #side-panel-trigger {
 	float: right;
-	margin: 40px 0 40px 15px;
+	margin: 20px 0 40px 15px;
 }
 
 #top-cart { position: relative; }
@@ -1900,7 +1919,7 @@ body.top-search-open #side-panel-trigger { opacity: 0; }
 #header.sticky-header:not(.static-sticky):not(.sticky-style-2) #logo img,
 #header.sticky-header:not(.static-sticky) #primary-menu,
 #header.sticky-header:not(.static-sticky) #primary-menu > ul,
-#header.sticky-header:not(.static-sticky) #primary-menu > ul > li > a { height: 60px; }
+#header.sticky-header:not(.static-sticky) #primary-menu > ul > li > a { height: 90px; }
 
 #header.sticky-header:not(.static-sticky).sticky-style-2 { height: 161px; }
 
@@ -3108,6 +3127,7 @@ body.side-panel-open:not(.device-xxs):not(.device-xs):not(.device-sm) .body-over
 	font-weight: 300;
 	color: #777;
 	font-size: 18px;
+    width: 800px;
 }
 
 .breadcrumb {
@@ -3119,8 +3139,10 @@ body.side-panel-open:not(.device-xxs):not(.device-xs):not(.device-sm) .body-over
 	margin: -10px 0 0 0 !important;
 	background-color: transparent !important;
 	padding: 0 !important;
-	font-size: 12px;
+	font-size: 14px;
 }
+
+.breadcrumb li.active {color: #1693A5;}
 
 body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 
@@ -3775,7 +3797,7 @@ body.device-touch.device-xxs .portfolio-notitle .portfolio-desc { display: none 
 
 .portfolio-2 .portfolio-desc span {
 	margin-top: 4px;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 
@@ -4096,7 +4118,7 @@ body.device-touch.device-xxs .portfolio-notitle .portfolio-desc { display: none 
 
 .portfolio-1 .portfolio-desc p {
 	margin: 20px 0 25px;
-	font-size: 14px;
+	font-size: 17px;
 }
 
 .portfolio-1 .portfolio-desc li { margin: 3px 0; }
@@ -6986,7 +7008,7 @@ body:not(.device-touch) .button.button-full strong {
 	display: block;
 	color: #444;
 	font-weight: 300;
-	font-size: 16px;
+	font-size: 19px;
 	margin-top: 6px;
 }
 

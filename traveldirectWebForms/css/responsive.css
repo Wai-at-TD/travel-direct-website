@@ -1465,6 +1465,10 @@
 		right: 0;
 		padding: 20px 15px;
 	}
+    
+    #page-title span {
+    width: 100%;
+    }
 
 	#top-social,
 	#slider:not(.swiper_wrapper) .slider-caption,
