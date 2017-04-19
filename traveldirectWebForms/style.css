@@ -2798,6 +2798,12 @@ body.side-panel-open:not(.device-xxs):not(.device-xs):not(.device-sm) .body-over
 
 /* Slider Caption
 -----------------------------------------------------------------*/
+.slider-caption {
+    background: rgba(0,0,0,0.4);
+    padding: 35px;
+    border-radius: 10px;
+    max-width: 600px;
+}
 
 .slider-caption,
 .nivo-caption,
@@ -2806,7 +2812,6 @@ body.side-panel-open:not(.device-xxs):not(.device-xs):not(.device-sm) .body-over
 	top: 0;
 	left: 15px;
 	z-index: 20;
-	max-width: 550px;
 	color: #EEE;
 	font-size: 22px;
 	font-weight: 300;
