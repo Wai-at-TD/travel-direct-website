@@ -57,6 +57,27 @@
             font-size: 50px;
             font-family: inherit;
         }
+        
+        /*** CSS for conditional form field ***/
+			#other:checked ~ .conditional {
+				clip: auto;
+				height: auto;
+				margin: 0;
+				overflow: visible;
+				position: static;
+				width: auto;
+			}
+
+			#other:not(:checked) ~ .conditional {
+				border: 0;
+				clip: rect(0 0 0 0);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+				width: 1px;
+			}
     </style>
     
 </head>
@@ -159,7 +180,7 @@
                                         <option value="Prof">6+</option>
                                     </select>
                                 </div>
-
+                                
                                 <div class="col_one_third">
                                     <label class="required" for="departure" aria-required="true">Departure Date</label>
                                     <input type="date" name="departure" class="sm-form-control datepick">
@@ -170,7 +191,69 @@
                                     <input type="date" name="return" class="sm-form-control datepick">
                                     </select>
                                 </div>
+                                
+                                <div class="clear"></div>
+                                
+                                <div class="col_two_third">
+                                    <label class="required" for="destination" aria-required="true">Destination</label>
+                                    <select id="destination" name="destination" class="sm-form-control" data-bind="">
+                                        <option></option>
+                                        <option value="culture">Colombia</option>
+                                        <option value="cityAndBeach">Costa Rica</option>
+                                        <option value="luxury">Ecuador</option>
+                                        <option value="Barbados">Mexico</option>
+                                        <option value="Barbados">Peru</option>
+                                        <option value="honeymoon">Vietnam</option>
+                                        <option value="solo">Barbados</option>
+                                        <option value="group">Jamaica</option>
+                                        <option value="wildlifeNature">Saint Lucia</option>
+                                    </select>
+                                </div>
+                        
+                                <div class="clear"></div>
+                                
+                                <div class="col_two_third">
+                                    <label class="required" for="purpose" aria-required="true">Purpose of your trip</label><br>
+                                    <input type="checkbox" name="family" value="family" id="family">
+                                    <label for="family">Family Holiday</label><br>
 
+                                    <input type="checkbox" name="culture" value="culture" id="culture">
+                                    <label for="culture">Explore Culture</label><br>
+
+                                    <input type="checkbox" name="cityAndBeach" value="cityAndBeach" id="cityAndBeach">
+                                    <label for="cityAndBeach">City and Beach Break</label><br>
+
+                                    <input type="checkbox" name="luxury" value="luxury" id="luxury">
+                                    <label for="luxury">Luxury Break</label><br>
+
+                                    <input type="checkbox" name="honeymoon" value="honeymoon" id="honeymoon">
+                                    <label for="honeymoon">Honeymoon</label><br>
+                                    
+                                    <input type="checkbox" name="couples" value="couples" id="couples">
+                                    <label for="couples">Couples Break</label><br>
+
+                                    <input type="checkbox" name="solo" value="solo" id="solo">
+                                    <label for="solo">Solo</label><br>
+
+                                    <input type="checkbox" name="group" value="group" id="group">
+                                    <label for="group">Group Travel</label><br>
+
+                                    <input type="checkbox" name="wildlife-nature" value="wildlife-nature" id="wildlife-nature">
+                                    <label for="wildlife-nature">Wildlife and Nature</label><br>
+
+                                    <input type="checkbox" name="tailor-made" value="tailor-made" id="tailor-made">
+                                    <label for="tailor-made">Tailor-made Tours</label><br>
+
+                                    <input type="checkbox" name="other" value="other" id="other">
+                                    <label for="other">Other</label>
+                                        <fieldset class="conditional">
+                        
+                                        <label for="tellMore">Please tell us more:</label>
+                                        <textarea class="required sm-form-control border-form-control" id="tellMore" name="tellMore" rows="1"></textarea>
+                                       
+                                        </fieldset>
+                                </div>
+                                
                                 <div class="clear"></div>
 
                                 <div class="col_full">
@@ -184,7 +267,8 @@
                                 </div>
 
                                 <div class="col_full center">
-                                    <button class="button button-xlarge button-dirtygreen button-circle t500 noleftmargin topmargin-sm" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Start designing your dream holiday</button>
+                                    <button class="hidden-xs button button-xlarge button-dirtygreen button-circle t500 noleftmargin topmargin-sm" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Start designing your dream holiday</button>
+                                    <button class="visible-xs button button-dirtygreen button-circle t500 noleftmargin topmargin-sm" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Begin your journey</button>
                                     <br>
                                 </div>
 
@@ -198,7 +282,7 @@
 
                 </div>
                 
-                <div class="divider divider-short divider-center"><a href="#" data-scrollto="#header"><i class="icon-chevron-up"></i></a></div>
+                <div class="divider divider-short divider-center"><a href="#" data-scrollto="#wrapper"><i class="icon-chevron-up"></i></a></div>
 
                 <div class="nobg noborder topmargin">
                     <div class="container center clearfix">
@@ -208,7 +292,7 @@
                         </div>
 
                         <div class="heading-block">
-                            <h2><a href="tel:02036277504"><span>020 3627 7504</span></a></h2>
+                            <h2><a href="tel:02071485592"><span class="rTapNumber252422">020 3627 7504</span></a></h2>
                         </div>
                     </div>
                 </div>

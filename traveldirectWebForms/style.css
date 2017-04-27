@@ -1919,7 +1919,7 @@ body.top-search-open #side-panel-trigger { opacity: 0; }
 #header.sticky-header:not(.static-sticky):not(.sticky-style-2) #logo img,
 #header.sticky-header:not(.static-sticky) #primary-menu,
 #header.sticky-header:not(.static-sticky) #primary-menu > ul,
-#header.sticky-header:not(.static-sticky) #primary-menu > ul > li > a { height: 90px; }
+#header.sticky-header:not(.static-sticky) #primary-menu > ul > li > a { height: auto; }
 
 #header.sticky-header:not(.static-sticky).sticky-style-2 { height: 161px; }
 
