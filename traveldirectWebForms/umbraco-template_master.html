@@ -1,0 +1,434 @@
+@using System.Configuration
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Archetype.Models;
+
+@{
+    Layout = null;
+    var source = Request.QueryString.HasKeys() ? Request.QueryString["utm_source"] : "";
+    var root = CurrentPage.AncestorOrSelf(1);
+    var rootSocialMedia = (ArchetypeModel)root.mainSocialMediaLinks;
+    var phone = root.contactPhone;
+    var envelope = root.HasValue("envelopeText") ? root.envelopeText : "";
+
+    var apiKey = ConfigurationManager.AppSettings["googleMapsApiKey"];
+    var prodSlot = !string.IsNullOrEmpty(ConfigurationManager.AppSettings["PRODUCTION_SLOT"]) && bool.Parse(ConfigurationManager.AppSettings["PRODUCTION_SLOT"]);
+
+    var metatags = CurrentPage.pageMetatags != null && CurrentPage.pageMetatags.Fieldsets.Count != 0 ? CurrentPage.pageMetatags.Fieldsets[0].Properties : null;
+    var style = CurrentPage.darkStyle == null || Convert.ToBoolean(CurrentPage.darkStyle) == false ? "dark" : "";
+
+    var childs = Model.Content.AncestorOrSelf(1).Children;
+    var topMenu = childs.Where(xs => xs.GetPropertyValue<bool>("onTopMenu"));
+    var mainMenu = childs.Where(xs => xs.GetPropertyValue<bool>("onMainMenu"));
+    var footerMenu = childs.Where(xs => xs.GetPropertyValue<bool>("onFooter"));
+    var contactPage = childs.Any(xs => xs.GetPropertyValue<string>("footerText").ToLower().Equals("inspiration")) ? childs.FirstOrDefault(xs => xs.GetPropertyValue<string>("footerText").ToLower().Equals("inspiration")) : childs.FirstOrDefault(xs => xs.GetPropertyValue<string>("footerText").ToLower().Equals("contact"));
+}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-GB">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="TravelDirect" />
+
+    <!-- Stylesheets
+        ============================================= -->
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/css/dark.css" type="text/css" />
+
+    <!-- Travel Demo Specific Stylesheet -->
+    <link rel="stylesheet" href="/demos/travel/travel.css" type="text/css" />
+    <link rel="stylesheet" href="/demos/travel/css/datepicker.css" type="text/css" />
+    <!-- / -->
+
+    <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="/css/td-mods.css" type="text/css" />
+
+    <link rel="stylesheet" href="/css/responsive.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/css/colors-dirty-green.css" type="text/css" />
+    <!--<link rel="stylesheet" href="/css/colors.php?color=AC4147" type="text/css" />-->
+    <!-- External JavaScripts
+        ============================================= -->
+    <script type="text/javascript" src="/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/scripts/plugins.js"></script>
+
+    <!-- GoogleMaps JavaScripts
+        ============================================= -->
+
+    <script type="text/javascript" src="//maps.google.com/maps/api/js?@(string.IsNullOrEmpty(apiKey) ? "" : string.Format("key={0}&", apiKey))sensor=false"></script>
+    <script type="text/javascript" src="/scripts/jquery.gmap.js"></script>
+
+    <!-- Page Metatags
+        ============================================= -->
+    @if (metatags != null)
+    {
+        foreach (var tag in metatags)
+        {
+            if (!string.IsNullOrEmpty(tag.Value))
+            {
+                if (tag.PropertyEditorAlias == "Umbraco.ContentPickerAlias")
+                {
+                    <link rel="@tag.Alias" href="@Umbraco.NiceUrl(Convert.ToInt32(tag.Value))" />
+                }
+                else
+                {
+                    <meta name="@tag.Alias" content="@tag.Value" />
+                }
+            }
+        }
+    }
+
+    @if (prodSlot)
+    {
+     <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5DSG9TQ');</script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Hotjar Tracking Code for http://www.traveldirect.co.uk -->
+            <script>
+                (function (h, o, t, j, a, r) {
+                    h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+                    h._hjSettings = { hjid: 472029, hjsv: 5 };
+                    a = o.getElementsByTagName('head')[0];
+                    r = o.createElement('script'); r.async = 1;
+                    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                    a.appendChild(r);
+                })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+            </script>
+
+    }
+    <!-- Document Title
+        ============================================= -->
+    <title>@Umbraco.Field("siteName", recursive: true) | @Umbraco.Field("pageTitle", altFieldAlias: "pageName")</title>
+
+</head>
+
+<body class="stretched">
+    @if (prodSlot)
+    {
+       <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DSG9TQ"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+    }
+    <!-- Document Wrapper
+        ============================================= -->
+    <div id="wrapper" class="clearfix">
+
+        @if (!CurrentPage.GetPropertyValue<bool>("hideTopMenu"))
+        {
+           
+        <div class="hidden-lg hidden-md">
+            <a class="button button-full button-dirtygreen" href="tel:@phone">
+                <div class="center uppercase"><span class="ts-text @root.phoneTapNumber"><i class="icon-call nomargin"></i> <b>@phone</b></span></div>
+            </a>
+        </div>
+        }
+
+        <!-- Header
+        ============================================= -->
+        <header id="header" class="sticky-style-2">
+
+                <div class="container clearfix">
+
+                    <!-- Logo
+                    ============================================= -->
+                    <div id="logo">
+                        <a href="@root.Url" class="standard-logo" data-dark-logo="@root.logoDark"><img src="@root.logo" alt="Travel Direct Logo"></a>
+                        <a href="@root.Url" class="retina-logo" data-dark-logo="@root.logoRetinaDark"><img src="@root.logoRetina" alt="Travel Direct Logo"></a>
+                    </div><!-- #logo end -->
+                    
+                    <ul class="header-extras">
+                        <li>
+                            <a href=""><i class="i-plain icon-email2 nomargin"></i></a>
+                            <div class="he-text">
+                                Request a quote
+                                <span>from our tour specialists</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="tel:02071485592"><i class="i-plain icon-call nomargin"></i></a>
+                            <div class="he-text">
+                                Get in Touch
+                                <span class="rTapNumber177228">0207 148 5592</span>
+                            </div>
+                        </li>
+                    </ul>
+                
+                </div>
+                   
+                <div id="header-wrap">
+                    
+                    <!-- Primary Navigation
+                    ============================================= -->
+                    <nav id="primary-menu" class="style-2">
+                        
+                        <div class="container clearfix">
+
+                            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                            <ul>
+                                <li><a href="index.html"><div>Home</div></a>
+                                </li>
+                                <li class="current"><a href="#"><div>About Us</div></a>
+                                </li>
+                                <li class="mega-menu"><a href="#"><div>Tours</div></a>
+                                </li>
+                                <li class="mega-menu"><a href="#"><div>Beach Holidays</div></a>
+                                </li>
+                                <li class="mega-menu"><a href="#"><div>Inspiration</div></a>
+                                </li>
+                                <li><a href="shop.html"><div>Destinations</div></a>
+                                    <ul>
+                                        <li><a href="#">Vietnam</a></li>
+                                        <li><a href="#">Colombia</a></li>
+                                        <li><a href="#">Costa Rica</a></li>
+                                        <li><a href="#">Ecuador</a></li>
+                                        <li><a href="#">Mexico</a></li>
+                                        <li><a href="#">Peru</a></li>
+                                        <li><a href="#">Barbados</a></li>
+                                        <li><a href="#">Jamaica</a></li>
+                                        <li><a href="#">Saint Lucia</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <!-- Top Cart
+                            ============================================= -->
+                            <div class="hidden-sm hidden-xs" id="top-cart">
+                                <a href="#" id="top-cart-trigger"><i class="icon-twitter"></i></a>
+                            </div>
+                            <div class="hidden-sm hidden-xs" id="top-cart">
+                                <a href="#" id="top-cart-trigger"><i class="icon-facebook"></i></a>
+                            </div><!-- #top-cart end -->
+
+                            <!-- Top Search
+                            ============================================= -->
+                            <div class="hidden-lg hidden-md" id="top-search">
+                                <a href="#" id="top-cart-trigger"><h3><i class="icon-email2"></i></h3></a>
+                            </div><!-- #top-search end -->
+
+                        </div>
+                        
+                    </nav><!-- #primary-menu end -->
+
+                </div>
+
+        </header><!-- #header end -->
+        @RenderBody()
+
+        <!-- Footer
+            ============================================= -->
+        <footer id="footer" class="dark">
+
+            <div class="container">
+
+                <!-- Footer Widgets
+                ============================================= -->
+                <div class="footer-widgets-wrap clearfix">
+
+                    <div class="col_half">
+
+                        <div class="widget clearfix">
+
+                            <img src="@root.logoDark" alt="Travel Direct Logo" class="footer-logo">
+
+                            <p>Specialist holiday experts | Authentic travel experiences.</p>
+
+                            <div class="clearfix" style="padding: 10px 0; background: url('/images/world-map.png') no-repeat center center;">
+                                <div class="col_half">
+                                    <address class="nobottommargin">
+                                        <abbr title="Headquarters" style="display: inline-block;margin-bottom: 7px;"><strong>Headquarters:</strong></abbr><br>
+                                        @root.AddressLine1<br>
+                                        @root.AddressLine2<br>
+                                        @root.County<br />
+                                        @root.City @root.post
+                                    </address>
+                                    <abbr title="Phone Number"><strong>Phone:</strong></abbr> <span class="@root.phoneTapNumber">@phone</span><br>
+                                </div>
+                                <div class="col_half col_last">
+                                    <div class="widget subscribe-widget clearfix">
+                                        <h5>Let us know about your travel plans, our team of <strong>specialists</strong> will send you free itinerary ideas based on your interests.</h5>
+                                        <a class="button button-large button-dirtygreen uppercase nomargin" href="@contactPage.Url"> Find Inspiration</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if (rootSocialMedia.Any())
+                            {
+                                foreach (var social in rootSocialMedia)
+                                {
+                                    <a href="@social.GetValue("externalUrl")" class="social-icon si-small si-rounded topmargin-sm si-@social.GetValue("styleClass")" target="_blank" title="@social.GetValue("title")">
+                                        <i class="icon-@social.GetValue("styleClass")"></i>
+                                        <i class="icon-@social.GetValue("styleClass")"></i>
+                                    </a>
+                                }
+                            }
+
+                        </div>
+
+                    </div>
+
+                    <div class="col_one_fourth">
+
+                        <div class="widget clearfix">
+                            <h4>your peace of mind</h4>
+
+                            <div id="post-list-footer">
+                                <div class="spost clearfix">
+                                    <div class="entry-image hidden-sm">
+                                        <img class="img-circle" src="/images/cubadirect/cuba-direct-atol-footer.png" alt="ATOL Protected Cuba Holidays">
+                                    </div>
+                                    <div class="entry-c">
+                                        <div class="entry-title">
+                                            <h4>Your holiday is financially protected with ATOL Licence 6346</h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="spost clearfix">
+                                    <div class="entry-image hidden-sm">
+                                        <img class="img-circle" src="/images/cubadirect/cuba-direct-iata-footer.png" alt="Cuba IATA Accredited Tour Operator">
+                                    </div>
+                                    <div class="entry-c">
+                                        <div class="entry-title">
+                                            <h4>Travel Direct is an IATA Accredited Tour Operator.</h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="spost clearfix">
+                                    <div class="entry-image hidden-sm">
+                                        <img class="img-circle" src="/images/cubadirect/cuba-direct-feefo-footer.png" alt="Travel Direct Reviews">
+                                    </div>
+                                    <div class="entry-c">
+                                        <div class="entry-title">
+                                            <h4>Independent, unedited Travel Direct reviews provided by Feefo, the Global Feedback Engine.</h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col_one_fourth col_last">
+
+                        <div class="widget quick-contact-widget clearfix">
+
+                            <h4>Atol Statement</h4>
+                            <p>All the flights and flight-inclusive holidays [in this brochure] [on this website - as appropriate] are financially protected by the ATOL scheme. When you pay you will be supplied with an ATOL Certificate. Please ask for it and check to ensure that everything you booked (flights, hotels and other services) is listed on it. Please see our booking conditions for further information or for more information about financial protection and the ATOL Certificate go to: <a target="_blank" href="http://www.caa.co.uk/ATOL-protection/Consumers/ATOL-certificate/">www.atol.org.uk/ATOLCertificate</a></p>
+                        </div>
+
+                    </div>
+
+                </div><!-- .footer-widgets-wrap end -->
+
+            </div>
+
+            <!-- Copyrights
+            ============================================= -->
+            <div id="copyrights">
+
+                <div class="container clearfix">
+
+                    <div class="col_full nobottommargin center">
+                        <div class="copyrights-menu copyright-links clearfix">
+                            @if (root.GetPropertyValue<bool>("onFooter"))
+                            {
+                                <a href="@root.Url">@root.footerText</a>
+                                <span> | </span>
+                            }
+                            @{
+                                int cantPages = footerMenu.Count();
+                                foreach (var footer in footerMenu)
+                                {
+                                    <a href="@footer.Url">@footer.GetPropertyValue("footerText")</a>
+                                    if (--cantPages > 0)
+                                    {<span> | </span>}
+                                }
+                            }
+                        </div>
+                        Copyrights © All Rights Reserved by Live Holidays Ltd.
+                    </div>
+
+                </div>
+
+            </div><!-- #copyrights end -->
+
+        </footer><!-- #footer end -->
+
+    </div><!-- #wrapper end -->
+    <!-- Go To Top
+        ============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
+
+    <!-- Footer Scripts
+        ============================================= -->
+    <script type="text/javascript" src="/scripts/functions.js"></script>
+    <script type="text/javascript">
+        var adiInit = "39999", adiRVO = true;
+        var adiFunc = null;
+        (function () {
+            var adiSrc = document.createElement("script"); adiSrc.type = "text/javascript";
+            adiSrc.async = true;
+            adiSrc.src = ("https:" == document.location.protocol ? "https://static-ssl" : "http://static-cdn") + ".responsetap.com/static/scripts/rTapTrack.min.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(adiSrc, s);
+        })();
+    </script>
+    <script type="text/javascript">
+        $(function () {
+
+            var storage = window.sessionStorage;
+            var source = "@source";
+            
+            try {
+                if (source != "") {
+                    /*local storage html5*/
+                    if (localStorage.getItem('ad_source') == null || localStorage.getItem('ad_source') == "")
+                        localStorage['ad_source'] = source;
+                    else if (localStorage['ad_source'] != source) {
+                        localStorage['ad_source'] = source
+                    }
+                    /*session Storage html5*/
+                    if (sessionStorage.getItem('ad_source') == null || sessionStorage.getItem('ad_source') == "")
+                        sessionStorage['ad_source'] = source;
+                    else if (sessionStorage['ad_source'] != source) {
+                        sessionStorage['ad_source'] = source
+                    }
+                }
+            } catch (error) {
+                if (error.code === DOMException.QUOTA_EXCEEDED_ERR && storage.length === 0) {
+                    alert('Your browser is in Private mode. Some functionalities have been disabled');
+                } else {
+                    throw error;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
