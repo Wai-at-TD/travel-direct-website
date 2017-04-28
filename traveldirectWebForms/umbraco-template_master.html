@@ -185,31 +185,28 @@
 
                             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
+                            @if (!CurrentPage.GetPropertyValue<bool>("hideMainMenu"))
+                        {
                             <ul>
-                                <li><a href="index.html"><div>Home</div></a>
-                                </li>
-                                <li class="current"><a href="#"><div>About Us</div></a>
-                                </li>
-                                <li class="mega-menu"><a href="#"><div>Tours</div></a>
-                                </li>
-                                <li class="mega-menu"><a href="#"><div>Beach Holidays</div></a>
-                                </li>
-                                <li class="mega-menu"><a href="#"><div>Inspiration</div></a>
-                                </li>
-                                <li><a href="shop.html"><div>Destinations</div></a>
-                                    <ul>
-                                        <li><a href="#">Vietnam</a></li>
-                                        <li><a href="#">Colombia</a></li>
-                                        <li><a href="#">Costa Rica</a></li>
-                                        <li><a href="#">Ecuador</a></li>
-                                        <li><a href="#">Mexico</a></li>
-                                        <li><a href="#">Peru</a></li>
-                                        <li><a href="#">Barbados</a></li>
-                                        <li><a href="#">Jamaica</a></li>
-                                        <li><a href="#">Saint Lucia</a></li>
-                                    </ul>
-                                </li>
+                                @if (root.GetPropertyValue<bool>("onMainMenu"))
+                                {
+                                    <li class="@(root.Id == CurrentPage.Id ? "current" : null)">
+                                        <a href="@root.Url">
+                                            <div><i class="@root.mainMenuIcon"></i>@root.footerText</div>
+                                        </a>
+                                    </li>
+                                }
+                                @foreach (var elem in mainMenu)
+                                {
+                                    var isnode = CurrentPage.AncestorsOrSelf(); //.Where(xval => xval.Id == elem.Id).First();
+                                    <li class="@((elem.Id == CurrentPage.Id) || CurrentPage.GetPropertyValue<int>("menuGroup") == elem.Id || ((CurrentPage.DocumentTypeAlias == "holidayDetail" || CurrentPage.DocumentTypeAlias == "hotelDetail") && CurrentPage.Parent.GetPropertyValue<int>("menuGroup") == elem.Id) ? "current" : null)">
+                                        <a href="@elem.Url">
+                                            <div><i class="@elem.GetPropertyValue("mainMenuIcon")"></i>@elem.GetPropertyValue("footerText")</div>
+                                        </a>
+                                    </li>
+                                }
                             </ul>
+                        }
 
                             <!-- Top Cart
                             ============================================= -->
