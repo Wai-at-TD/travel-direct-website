@@ -62,24 +62,78 @@
     border: 2px solid #D35400;
 }
 
+
+/*Boxy nav option*/
 ul.call-to-actions li.request-quote a {
-    background-color: purple;
+    background-color: #095256;
 }
 ul.call-to-actions li.callback a {
-    background: mediumpurple;
+    background-color: #F0A53C;
 }
 ul.call-to-actions li.callus a {
-    background: rebeccapurple;
+    background-color: #ff4500;
 }
 #primary-menu ul.call-to-actions li a {
     color: #fff;
     text-transform: capitalize;
 }
+
 #primary-menu ul.call-to-actions li a:hover {
     color: #ccc;
     text-transform: capitalize;
 }
+
 #primary-menu ul.call-to-actions li a {
     color: #fff;
     text-transform: capitalize;
 }
+
+
+
+/*** Text only with colour
+#primary-menu ul.call-to-actions li.request-quote a {
+    background-color: transparent;
+    color: #095256;
+}
+#primary-menu ul.call-to-actions li.callback a {
+    background-color: transparent;
+    color: #F0A53C;
+}
+#primary-menu ul.call-to-actions li.callus a {
+    background-color: transparent;
+    color: #ff4500;
+    font-family: inherit;
+}
+#primary-menu ul.call-to-actions li a:hover {
+    color: #444;
+}
+
+#primary-menu ul.call-to-actions li a {
+    color: #fff;
+    text-transform: uppercase;
+}
+*/
+
+/*
+#primary-menu ul.call-to-actions li.request-quote a {
+    background-color: transparent;
+    color: #095256;
+}
+#primary-menu ul.call-to-actions li.callback a {
+    background-color: transparent;
+    color: #F0A53C;
+}
+#primary-menu ul.call-to-actions li.callus a {
+    background-color: #ff4500;
+    color: #fff;
+    font-family: inherit;
+}
+#primary-menu ul.call-to-actions li a:hover {
+    color: #444;
+}
+
+#primary-menu ul.call-to-actions li a {
+    color: #fff;
+    text-transform: uppercase;
+}
+*/
