@@ -70,8 +70,22 @@ ul.call-to-actions li.request-quote a {
 ul.call-to-actions li.callback a {
     background-color: #F0A53C;
 }
-ul.call-to-actions li.callus a {
-    background-color: #ff4500;
+#primary-menu ul.call-to-actions li.callus a {
+    background-color: transparent;
+    color: #ff4500;
+    font-size: 25px;
+}
+.callus p {
+    text-align: center;
+    margin-top: -9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+.callus div {
+    margin-top: -13px;
+    border-bottom: 1px solid #eee;
+    height: 49px;
 }
 #primary-menu ul.call-to-actions li a {
     color: #fff;
