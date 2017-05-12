@@ -65,28 +65,42 @@
 
 /*Boxy nav option*/
 ul.call-to-actions li.request-quote a {
-    background-color: #095256;
+    background-color: #ea981a;
 }
 ul.call-to-actions li.callback a {
     background-color: #F0A53C;
 }
+
+/*** Specific design requirements for call us and request ***/
 #primary-menu ul.call-to-actions li.callus a {
     background-color: transparent;
-    color: #ff4500;
+    color: #ea981a;
     font-size: 25px;
 }
-.callus p {
+#primary-menu ul.call-to-actions li.callus div.request {
+    color: #01395C;
+    margin-top: -28px;
     text-align: center;
-    margin-top: -9px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 13px;
+    border-bottom: 0px;
+    transition: 0.8s;
+}
+#primary-menu ul.call-to-actions li.callus div.request:hover {
+    color: #444;
 }
 .callus div {
     margin-top: -13px;
     border-bottom: 1px solid #eee;
     height: 49px;
+    transition: 0.8s;
 }
+.callus div:hover {
+    color: #444;
+}
+/**/
+
 #primary-menu ul.call-to-actions li a {
     color: #fff;
     text-transform: capitalize;
